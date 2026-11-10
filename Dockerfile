@@ -1,9 +1,9 @@
 FROM alpine:3.23 AS builder
 
-ARG cosign_version=3.0.6
-ARG cosign_checksum=c956e5dfcac53d52bcf058360d579472f0c1d2d9b69f55209e256fe7783f4c74
-ARG trivy_version=0.74.0
-ARG trivy_checksum=2ae6fe3ee734b7fdf11335663e18c75ea12dccc76062f09f164a3b0f8be4371a
+ARG cosign_version=3.1.4
+ARG cosign_checksum=424e2c97d0b45fd7a6b608a87f090f35633f4c23ece5f092d48bba11aaf4bbfa
+ARG trivy_version=0.76.2
+ARG trivy_checksum=bc0fc726e017b8927a62b2d3531d7a84ee01769daf5c99ed866dced54089fdbf
 
 # Set errexit, nounset, and pipefail shell options for added safety
 SHELL ["/bin/ash", "-euo", "pipefail", "-c"]
@@ -12,7 +12,7 @@ RUN apk update && \
     apk upgrade && \
     apk add --no-cache \
         bash=5.3.3-r1 \
-        curl=8.22.0-r0 \
+        curl=8.23.0-r0 \
         outils-sha256=0.14-r0
 
 # Download, verify, and install Cosign
